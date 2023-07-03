@@ -1,0 +1,41 @@
+CREATE DATABASE Agile
+GO
+USE Agile
+Go
+CREATE TABLE SinhVien
+(
+MaSV NVARCHAR(50) PRIMARY KEY NOT NULL,
+TenSV NVARCHAR(50) NOT NULL,
+NgaySinh DATE NOT NULL,
+QueQuan NVARCHAR(50) NOT NULL,
+SoDienThoai NVARCHAR(50) NOT NULL,
+Email NVARCHAR(50) NOT NULL,
+XepLoai NVARCHAR(50) NOT NULL,
+ChucVu NVARCHAR(50) NOT NULL
+)
+
+CREATE TABLE ThanNhan
+(
+MaSV NVARCHAR(50) NOT NULL,
+TenTN NVARCHAR(50) NOT NULL,
+NgaySinhTN DATE NOT NULL,
+SoDienThoaiTN NVARCHAR(50) NOT NULL,
+QueQuanTN NVARCHAR(50) NOT NULL,
+CONSTRAINT FK_ThanNhan_SinhVien FOREIGN KEY(MaSV) REFERENCES SinhVien(MaSV)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+)
+
+CREATE TABLE TaiKhoan
+(
+TaiKhoan NVARCHAR(50) NOT NULL,
+MatKhau NVARCHAR(50) NOT NULL
+)
+INSERT INTO TaiKhoan VALUES
+('sa','123')
+update SinhVien set MaSV = 'ph2'
+select * from SinhVien
+select * from TaiKhoan
+select * from ThanNhan
+delete from ThanNhan 
+insert ThanNhan values('ph1','haong','2003/02/17','0123456789','nam dinh')
